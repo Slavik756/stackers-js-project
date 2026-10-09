@@ -1,113 +1,85 @@
-# Vanilla App Template
+# Stackers — Developer Portfolio
 
-Цей проект було створено за допомогою Vite. Для знайомства та налаштування
-додаткових можливостей [звернись до документації](https://vitejs.dev/).
+A team JavaScript project: an interactive portfolio website for the fictional developer Jefferson. The page combines a project showcase, skills, reviews and a contact form with configurable visual themes.
 
-## Створення репозиторію за шаблоном
+[Team demo](https://mykhaito.github.io/stackers-js-project/)
 
-Використовуй цей репозиторій організації GoIT як шаблон для створення
-репозиторію свого проекту. Для цього натисни на кнопку `«Use this template»` і
-обери опцію `«Create a new repository»`, як показано на зображенні.
+## Features
 
-![Creating repo from a template step 1](./assets/template-step-1.png)
+- Responsive navigation and mobile menu.
+- About and FAQ sections with accordions.
+- Swiper sliders for skills, projects and reviews.
+- Animated project-cover section.
+- Dark and light themes with six accent colours.
+- Theme preferences saved in `localStorage`.
+- Contact form with email validation, a request to an external API, a confirmation modal and error notifications.
+- Back-to-top control.
 
-На наступному етапі відкриється сторінка створення нового репозиторію. Заповни
-поле його імені, переконайся, що репозиторій публічний, після чого натисни
-кнопку `«Create repository from template»`.
+Reviews are rendered from data stored in the frontend. Contact submissions use the GoIT training API; the repository does not contain its own backend.
 
-![Creating repo from a template step 2](./assets/template-step-2.png)
+## Stack
 
-Після того, як репозиторій буде створено, необхідно перейти в налаштування
-створеного репозиторію на вкладку `Settings` > `Actions` > `General` як показано
-на зображенні.
+HTML5, CSS3, JavaScript modules and Vite 5.
 
-![Settings GitHub Actions permissions step 1](./assets/gh-actions-perm-1.png)
+The interface uses Swiper, Accordion.js, Axios, iziToast and modern-normalize. HTML partials are composed with `vite-plugin-html-inject`.
 
-Проскроливши сторінку до самого кінця, в секції `«Workflow permissions»` обери
-опцію `«Read and write permissions»` і постав галочку в чекбоксі. Це необхідно
-для автоматизації процесу деплою проекту.
+## Run locally
 
-![Settings GitHub Actions permissions step 2](./assets/gh-actions-perm-2.png)
+With Node.js and npm installed:
 
-Тепер у тебе є особистий репозиторій проекту, зі структурою файлів та папок
-репозиторію-шаблону. Далі працюй з ним, як з будь-яким іншим особистим
-репозиторієм, клонуй його собі на комп'ютер, пиши код, роби коміти та відправляй
-їх на GitHub.
-
-## Підготовка до роботи
-
-1. Переконайся, що на комп'ютері встановлено LTS-версію Node.js.
-   [Скачай та встанови](https://nodejs.org/en/) її якщо необхідно.
-2. Встанови базові залежності проекту в терміналі командою `npm install`.
-3. Запусти режим розробки, виконавши в терміналі команду `npm run dev`.
-4. Перейдіть у браузері за адресою
-   [http://localhost:5173](http://localhost:5173). Ця сторінка буде автоматично
-   перезавантажуватись після збереження змін у файли проекту.
-
-## Файли і папки
-
-- Файли розмітки компонентів сторінки повинні лежати в папці `src/partials` та
-  імпортуватись до файлу `index.html`. Наприклад, файл з розміткою хедера
-  `header.html` створюємо у папці `partials` та імпортуємо в `index.html`.
-- Файли стилів повинні лежати в папці `src/css` та імпортуватись до HTML-файлів
-  сторінок. Наприклад, для `index.html` файл стилів називається `index.css`.
-- Зображення додавай до папки `src/img`. Збирач оптимізує їх, але тільки при
-  деплої продакшн версії проекту. Все це відбувається у хмарі, щоб не
-  навантажувати твій комп'ютер, тому що на слабких компʼютерах це може зайняти
-  багато часу.
-
-## Деплой
-
-Продакшн версія проекту буде автоматично збиратися та деплоїтись на GitHub
-Pages, у гілку `gh-pages`, щоразу, коли оновлюється гілка `main`. Наприклад,
-після прямого пуша або прийнятого пул-реквесту. Для цього необхідно у файлі
-`package.json` змінити значення прапора `--base=/<REPO>/`, для команди `build`,
-замінивши `<REPO>` на назву свого репозиторію, та відправити зміни на GitHub.
-
-```json
-"build": "vite build --base=/<REPO>/",
+```sh
+git clone https://github.com/Slavik756/stackers-js-project.git
+cd stackers-js-project
+npm ci
+npm run dev
 ```
 
-Далі необхідно зайти в налаштування GitHub-репозиторію (`Settings` > `Pages`) та
-виставити роздачу продакшн версії файлів з папки `/root` гілки `gh-pages`, якщо
-це не було зроблено автоматично.
+Open the URL printed by Vite, normally [http://localhost:5173](http://localhost:5173).
 
-![GitHub Pages settings](./assets/repo-settings.png)
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start development with live updates |
+| `npm run build` | Build the site into `dist/` |
+| `npm run preview` | Serve the production build locally |
 
-### Статус деплою
+The production build uses `/stackers-js-project/` as its base path. Open the full preview URL printed in the terminal.
 
-Статус деплою крайнього коміту відображається іконкою біля його ідентифікатора.
+## Structure
 
-- **Жовтий колір** - виконується збірка та деплой проекту.
-- **Зелений колір** - деплой завершився успішно.
-- **Червоний колір** - під час лінтингу, збірки чи деплою сталася помилка.
+```text
+src/
+├── index.html       # Page composition
+├── main.js          # Section-module imports
+├── partials/        # HTML for each section and modal
+├── css/             # Base, section, animation and theme styles
+└── js/              # Section-specific behaviour
+vite.config.js
+.github/workflows/deploy.yml
+```
 
-Більш детальну інформацію про статус можна переглянути натиснувши на іконку, і в
-вікні, що випадає, перейти за посиланням `Details`.
+Useful entry points:
 
-![Deployment status](./assets/deploy-status.png)
+- [Theme settings](src/js/settings-for-theme-color.js): CSS variables, accent colours and saved preferences.
+- [Contact form](src/js/workTogether.js): validation, API request and result handling.
+- [Reviews](src/js/reviews.js): local review data and slider setup.
+- [Projects](src/js/projects.js): project-slider interactions.
 
-### Жива сторінка
+## Contact API
 
-Через якийсь час, зазвичай кілька хвилин, живу сторінку можна буде подивитися за
-адресою, вказаною на вкладці `Settings` > `Pages` в налаштуваннях репозиторію.
-Наприклад, ось посилання на живу версію для цього репозиторію
+The form sends an email and comment to:
 
-[https://goitacademy.github.io/vanilla-app-template/](https://goitacademy.github.io/vanilla-app-template/).
+```text
+POST https://portfolio-js.b.goit.study/api/requests
+```
 
-Якщо відкриється порожня сторінка, переконайся, що у вкладці `Console` немає
-помилок пов'язаних з неправильними шляхами до CSS та JS файлів проекту
-(**404**). Швидше за все у тебе неправильне значення прапора `--base` для
-команди `build` у файлі `package.json`.
+A successful response opens the confirmation modal; a failed request displays an error notification. This behaviour depends on the availability of the external training service. Use demonstration data when trying the form.
 
-## Як це працює
+## Publishing and checks
 
-![How it works](./assets/how-it-works.png)
+The GitHub Actions workflow builds pushes to `main` and publishes `dist/` to `gh-pages`. Configure GitHub Pages to serve that branch. Update the build script's base path if deploying under a different repository name or URL path.
 
-1. Після кожного пуша у гілку `main` GitHub-репозиторію, запускається
-   спеціальний скрипт (GitHub Action) із файлу `.github/workflows/deploy.yml`.
-2. Усі файли репозиторію копіюються на сервер, де проект ініціалізується та
-   проходить лінтинг та збірку перед деплоєм.
-3. Якщо всі кроки пройшли успішно, зібрана продакшн версія файлів проекту
-   відправляється у гілку `gh-pages`. В іншому випадку, у лозі виконання скрипта
-   буде вказано в чому проблема.
+There is no automated test command in the current package scripts. After interface changes, check navigation, keyboard-controlled sliders, theme persistence after a reload, form validation and request-error handling.
+
+## Team context
+
+This is a collaborative learning project based on the GoIT Vite starter. The portfolio persona and project content belong to the demonstration website; they are not a claim about every contributor's personal work.
